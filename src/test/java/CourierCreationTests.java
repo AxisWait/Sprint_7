@@ -17,6 +17,7 @@ public class CourierCreationTests {
     public void setUp() {
         RestAssured.baseURI = "https://qa-scooter.praktikum-services.ru/";
     }
+    private static final String ENDPOINT_COURIER = "/api/v1/courier";
 
     @DisplayName("Создание курьера")
     @Test
@@ -70,7 +71,7 @@ public class CourierCreationTests {
                 .header("Content-type", "application/json")
                 .body(json)
                 .when()
-                .post("/api/v1/courier");
+                .post(ENDPOINT_COURIER);
         return response;
     }
     @Step("Send DELETE request to /api/v1/courier/:id")
